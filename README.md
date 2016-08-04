@@ -16,5 +16,6 @@ The python method successfully reads in and summarizes the data, and performs li
 I definitely learned during this project that choosing an approach that you're more familiar with (Octave, Gradient Descent) may not necessarily be faster or easier than an approach that you are less comfortable with (Python, Pandas/NumPy).
 
 Thanks!
+
 -Stephen
 
