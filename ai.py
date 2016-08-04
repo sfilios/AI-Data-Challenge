@@ -18,7 +18,7 @@ predictors = ["apparentTemperatureMax", "apparentTemperatureMax", "cloudCover", 
 #initialize algorithm class
 alg=LinearRegression()
 
-#split the dataset into 3 groups, one for test, one for cross validation. Assign those rows.
+#split the dataset into groups for testing and cross validation. Assign those rows.
 kf = KFold(wheat.shape[0], n_folds=3, random_state=1)
 
 #initialize list for predictions
