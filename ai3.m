@@ -19,33 +19,16 @@ y(1:10,:)
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-% Normalize the features
-fprintf('Normalizing Features ...\n');
-
-[X mu sigma] = featureNormalize(X);
+%calculate theta with normal equation
+theta=normalEqn.m
 
 % Add intercept term to X
 X = [ones(m, 1) X];
 
 
-fprintf('Running gradient descent ...\n');
-
-% Choose some alpha value
-alpha = 0.01;
-num_iters = 400;
-
-% Init Theta and Run Gradient Descent 
-theta = zeros(14, 1);
-[theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters);
-
-% Plot the convergence graph
-figure;
-plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
-xlabel('Number of iterations');
-ylabel('Cost J');
-
-% Display gradient descent's result
-fprintf('Theta computed from gradient descent: \n');
+% Display normaleqn result
+fprintf('Theta computed from normal equation: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
+
 
