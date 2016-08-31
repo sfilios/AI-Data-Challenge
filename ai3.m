@@ -19,33 +19,25 @@ y(1:10,:)
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-% Normalize the features
-fprintf('Normalizing Features ...\n');
-
-[X mu sigma] = featureNormalize(X);
+%calculate theta with normal equation
+theta=normalEqn.m
 
 % Add intercept term to X
 X = [ones(m, 1) X];
 
 
-fprintf('Running gradient descent ...\n');
-
-% Choose some alpha value
-alpha = 0.01;
-num_iters = 400;
-
-% Init Theta and Run Gradient Descent 
-theta = zeros(14, 1);
-[theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters);
-
-% Plot the convergence graph
-figure;
-plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
-xlabel('Number of iterations');
-ylabel('Cost J');
-
-% Display gradient descent's result
-fprintf('Theta computed from gradient descent: \n');
+% Display normaleqn result
+fprintf('Theta computed from normal equation: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
+
+
+price = 0; % You should change this. It would be winter wheat yield in this case
+test_set = [1650,3]; % change this to the data that you want to predict, with the proper parameters
+test_set = [ones(size(test_set, 1), 1) test_set];
+price = test_set*theta;
+
+fprintf(['Predicted winter wheat yield ' ...
+         '(using normal equations):\n $%f\n'], price);
+
 
