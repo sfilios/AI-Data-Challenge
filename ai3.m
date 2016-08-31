@@ -32,3 +32,12 @@ fprintf(' %f \n', theta);
 fprintf('\n');
 
 
+price = 0; % You should change this. It would be winter wheat yield in this case
+test_set = [1650,3]; % change this to the data that you want to predict, with the proper parameters
+test_set = [ones(size(test_set, 1), 1) test_set];
+price = test_set*theta;
+
+fprintf(['Predicted winter wheat yield ' ...
+         '(using normal equations):\n $%f\n'], price);
+
+
